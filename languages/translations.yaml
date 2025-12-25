@@ -1,0 +1,153 @@
+uz:
+  # Welcome messages
+  welcome_back: |
+    🎉 Qaytganingizdan xursandmiz!
+    
+    Sizga qanday yordam bera olaman?
+  
+  welcome_phone_request: |
+    👋 Assalomu alaykum!
+    
+    Botdan foydalanish uchun telefon raqamingizni ulashing.
+    Bu sizning buyurtmalaringizni kuzatish uchun kerak bo'ladi.
+  
+  # Error messages
+  error_occurred: |
+    ❌ Xatolik yuz berdi!
+    
+    Iltimos, qaytadan urinib ko'ring yoki administrator bilan bog'laning.
+  
+  # Phone number
+  phone_received: |
+    ✅ Telefon raqamingiz qabul qilindi!
+    
+    Endi siz botdan to'liq foydalanishingiz mumkin.
+  
+  phone_invalid: |
+    ⚠️ Telefon raqami noto'g'ri!
+    
+    Iltimos, tugmani bosib telefon raqamingizni ulashing.
+  
+  # Buttons
+  buttons:
+    share_phone_number: "📱 Telefon raqamni ulashish"
+    main_menu: "🏠 Asosiy menyu"
+    my_orders: "📦 Mening buyurtmalarim"
+    new_order: "➕ Yangi buyurtma"
+    settings: "⚙️ Sozlamalar"
+    help: "❓ Yordam"
+    back: "◀️ Orqaga"
+    cancel: "❌ Bekor qilish"
+    confirm: "✅ Tasdiqlash"
+    option_1: "Buyurma berish"
+    option_2: "Mening buyurtmalarim"
+  
+  # Help text
+  help_text: |
+    📚 <b>Yordam bo'limi</b>
+    
+    <b>Mavjud buyruqlar:</b>
+    /start - Botni ishga tushirish
+    /help - Yordam bo'limi
+    
+    <b>Qanday foydalanish kerak?</b>
+    1️⃣ Telefon raqamingizni ulashing
+    2️⃣ Asosiy menyudan kerakli bo'limni tanlang
+    3️⃣ Buyurtma bering va kuting!
+    
+    ❓ Savollaringiz bo'lsa, administrator bilan bog'laning.
+  
+  # Order messages
+  orders:
+    no_orders: |
+      📭 Sizda hali buyurtmalar yo'q
+      
+      Yangi buyurtma berish uchun tugmani bosing! 👇
+    
+    order_created: |
+      ✅ Buyurtma muvaffaqiyatli yaratildi!
+      
+      Buyurtma raqami: #{order_id}
+      Holati: Kutilmoqda ⏳
+    
+    order_cancelled: |
+      ❌ Buyurtma bekor qilindi
+      
+      Buyurtma raqami: #{order_id}
+
+en:
+  # Welcome messages
+  welcome_back: |
+    🎉 Welcome back!
+    
+    How can I help you today?
+  
+  welcome_phone_request: |
+    👋 Hello!
+    
+    Please share your phone number to use the bot.
+    This is required to track your orders.
+  
+  # Error messages
+  error_occurred: |
+    ❌ An error occurred!
+    
+    Please try again or contact the administrator.
+  
+  # Phone number
+  phone_received: |
+    ✅ Phone number received!
+    
+    You can now use the bot fully.
+  
+  phone_invalid: |
+    ⚠️ Invalid phone number!
+    
+    Please press the button to share your phone number.
+  
+  # Buttons
+  buttons:
+    share_phone_number: "📱 Share Phone Number"
+    main_menu: "🏠 Main Menu"
+    my_orders: "📦 My Orders"
+    new_order: "➕ New Order"
+    settings: "⚙️ Settings"
+    help: "❓ Help"
+    back: "◀️ Back"
+    cancel: "❌ Cancel"
+    confirm: "✅ Confirm"
+    option_1: "Buyurma Berish"
+    option_2: "Mening buyurtmalarim"
+  
+  # Help text
+  help_text: |
+    📚 <b>Help Section</b>
+    
+    <b>Available commands:</b>
+    /start - Start the bot
+    /help - Help section
+    
+    <b>How to use:</b>
+    1️⃣ Share your phone number
+    2️⃣ Choose a section from the main menu
+    3️⃣ Place your order and wait!
+    
+    ❓ If you have questions, contact the administrator.
+  
+  # Order messages
+  orders:
+    no_orders: |
+      📭 You have no orders yet
+      
+      Press the button to create a new order! 👇
+    
+    order_created: |
+      ✅ Order created successfully!
+      
+      Order ID: #{order_id}
+      Status: Pending ⏳
+    
+    order_cancelled: |
+      ❌ Order cancelled
+      
+      Order ID: #{order_id}

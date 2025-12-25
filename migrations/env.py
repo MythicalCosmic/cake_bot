@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from database.models.base import Base
+import database.models
 from core.config import config as app_config
 
 # Alembic Config object
