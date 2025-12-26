@@ -17,7 +17,7 @@ from aiogram import F
 
 router = Router()
 
-ADMIN_ID = [6589960007]  
+ADMIN_ID = [6589960007, 6343843937]  
 
 # @router.message()
 # async def echo_message(message: Message):
