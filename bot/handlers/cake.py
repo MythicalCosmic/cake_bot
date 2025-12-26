@@ -6,5 +6,4 @@ CAKE_OPTIONS = {
     "⬛ 4 burchakli 36×26 sm — 200 000 so'm": {"name": "4 burchakli 36×26 sm", "price": 200000},
     "❤️ Yurakchali — 120 000 so'm": {"name": "Yurakchali", "price": 120000},
     "🍰 Bento tort 2 kishilik — 60 000 so'm": {"name": "Bento tort 2 kishilik", "price": 60000},
-    "🖼 Rasm qo‘yish — 15 000 so'm": {"name": "Rasm qo‘yish", "price": 15000},
 }

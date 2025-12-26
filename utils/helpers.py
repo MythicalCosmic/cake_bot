@@ -1,5 +1,6 @@
 from database.database import get_session
 from database.models.user import User
+from datetime import datetime
 
 
 def format_user_mention(user_id: int, name: str) -> str:
@@ -66,3 +67,53 @@ async def get_phone_number(user_id: int) -> str | None:
         if user:
             return user.phone_number
     return None
+
+
+async def get_user_info(user_id: int) -> dict | None:
+    """Get user information"""
+    async for session in get_session():
+        user = await session.get(User, user_id)
+        if user:
+            return {
+                'id': user.id,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'username': user.username,
+                'phone_number': user.phone_number
+            }
+    return None
+
+
+async def format_order_for_admin(user_data: dict, user_info: dict) -> str:
+    """Format order details for admin notification"""
+    
+    user_mention = f'<a href="tg://user?id={user_info["id"]}">{user_info["first_name"]}</a>'
+    
+    total_price = user_data.get('total_price', user_data.get('cake_price', 0))
+    cake_price = user_data.get('cake_price', 0)
+    image_price = user_data.get('image_price', 0)
+    
+    price_breakdown = f"{cake_price:,} so'm"
+    if image_price > 0:
+        price_breakdown += f" + {image_price:,} so'm (rasm)"
+    
+    order_text = f"""
+🆕 <b>YANGI BUYURTMA!</b>
+
+👤 <b>Mijoz:</b>
+├ Ism: {user_data.get('first_name', 'N/A')} {user_data.get('last_name', 'N/A')}
+├ Telegram: {user_mention}
+├ Username: @{user_info.get('username', 'N/A')}
+└ Telefon: <code>{user_info.get('phone_number', 'N/A')}</code>
+
+🎂 <b>Buyurtma tafsilotlari:</b>
+├ Tort: {user_data.get('cake_name', 'N/A')}
+├ Narx: {price_breakdown}
+├ <b>JAMI: {total_price:,} so'm</b>
+├ Rasm: {'✅ Bor' if user_data.get('cake_image_file_id') else '❌ Yo\'q'}
+└ Olib ketish: {user_data.get('pickup_time', 'N/A')}
+
+⏰ <b>Buyurtma vaqti:</b> {datetime.now().strftime('%d.%m.%Y, %H:%M')}
+"""
+    
+    return order_text.strip()

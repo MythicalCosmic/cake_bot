@@ -36,7 +36,7 @@ logging.info("Configuration loaded successfully")
 
 def get_translation(key: str, language: str) -> str:
     keys = key.split(".")
-    data = LANGUAGES.get(language, LANGUAGES['en'])
+    data = LANGUAGES.get(language, LANGUAGES['uz'])
 
     try:
         for k in keys:

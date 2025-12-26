@@ -1,153 +1,137 @@
 uz:
   # Welcome messages
   welcome_back: |
-    🎉 Qaytganingizdan xursandmiz!
+    🎉 <b>Qaytganingizdan xursandmiz!</b>
     
-    Sizga qanday yordam bera olaman?
+    Yangi tort buyurtma berishga tayyormisiz? 🎂
   
   welcome_phone_request: |
-    👋 Assalomu alaykum!
+    👋 <b>Assalomu alaykum!</b>
     
-    Botdan foydalanish uchun telefon raqamingizni ulashing.
-    Bu sizning buyurtmalaringizni kuzatish uchun kerak bo'ladi.
+    Botdan foydalanish uchun telefon raqamingizni ulashing 📱
+    Bu sizning buyurtmalaringizni kuzatish uchun zarur!
   
-  # Error messages
-  error_occurred: |
-    ❌ Xatolik yuz berdi!
+  main_message: |
+    🏠 <b>Asosiy menyu</b>
     
-    Iltimos, qaytadan urinib ko'ring yoki administrator bilan bog'laning.
+    Quyidagi bo'limlardan birini tanlang 👇
   
-  # Phone number
+  menu_message: |
+    🎂 <b>Tort buyurtma qilish bo'limiga xush kelibsiz!</b>
+    
+    Qanday tort buyurtma qilmoqchisiz?
+  
+  # Phone messages
   phone_received: |
-    ✅ Telefon raqamingiz qabul qilindi!
+    ✅ <b>Ajoyib!</b> Telefon raqamingiz qabul qilindi!
     
-    Endi siz botdan to'liq foydalanishingiz mumkin.
+    Endi siz botdan to'liq foydalanishingiz mumkin 🎉
   
   phone_invalid: |
-    ⚠️ Telefon raqami noto'g'ri!
+    ⚠️ <b>Telefon raqami noto'g'ri!</b>
     
-    Iltimos, tugmani bosib telefon raqamingizni ulashing.
+    Iltimos, quyidagi formatda yuboring:
+    
+    📱 <code>+998901234567</code>
+    📱 <code>998901234567</code>
+    📱 <code>901234567</code>
+    
+    Yoki pastdagi tugmani bosing 👇
+  
+  # Cake selection
+  please_choose_cake: |
+    🎂 <b>Tort turini tanlang:</b>
+    
+    Quyidagi variantlardan birini tanlang 👇
+  
+  # Image selection
+  would_like_image: |
+    🖼 <b>Tortga rasm qo'yishni xohlaysizmi?</b>
+    
+    Tort ustiga sevimli rasmingizni qo'yishimiz mumkin! 
+    Bu sizning tortingizni yanada maxsus qiladi 🎨✨
+  
+  please_send_image: |
+    📸 <b>Ajoyib!</b> Endi rasm yuboring
+    
+    Tort ustiga qo'ymoqchi bo'lgan rasmingizni yuboring 🖼
+    
+    💡 <i>Maslahat: Yuqori sifatli rasm yuboring</i>
+  
+  image_received: |
+    ✅ <b>Rasm qabul qilindi!</b>
+    
+    Ajoyib tanlov! Rasmingiz tortga qo'yiladi 🎨
+  
+  no_image_selected: |
+    ✅ <b>Tushunarli!</b>
+    
+    Tort rasmsiz tayyorlanadi 👌
+  
+  # Personal information
+  please_enter_first_name: |
+    👤 <b>Ismingizni kiriting</b>
+    
+    Sizni qanday chaqirishimiz mumkin?
+    
+    💡 <i>Misol:</i> <code>Alisher</code>
+  
+  please_enter_last_name: |
+    👥 <b>Familiyangizni kiriting</b>
+    
+    To'liq ismingizni bilishimiz kerak
+    
+    💡 <i>Misol:</i> <code>Navoiy</code>
+  
+  please_enter_pickup_time: |
+    ⏰ <b>Tortni qachon olib ketmoqchisiz?</b>
+    
+    Sana va vaqtni quyidagi formatda yuboring:
+    
+    📅 <i>Misol:</i>
+    <code>30-dekabr, soat 15:00</code>
+    <code>Ertaga, soat 10:00</code>
+    <code>31.12.2024, 18:00</code>
+    
+    ⚠️ <b>Diqqat:</b> Tort kamida 24 soat oldin buyurtma qilinishi kerak!
+  
+  # Order confirmation
+  order_confirmation: |
+    📋 <b>Buyurtmangizni tasdiqlang!</b>
+    
+    Hamma narsa to'g'rimi? ✅
+  
+  order_placed: |
+    🎉 <b>Buyurtmangiz qabul qilindi!</b>
+    
+    Tez orada siz bilan bog'lanamiz 📞
+    Rahmat! 🙏
+  
+  order_cancelled: |
+    ❌ <b>Buyurtma bekor qilindi</b>
+    
+    Yana qaytib kelishingizni kutamiz! 👋
+
+  contact_info: |
+    ✨ <b>Biz bilan bog‘laning</b> ✨
+
+    📞 <b>Telefon:</b>
+    <a href="tel:+998996128980">+998 99 612 89 80</a>
+
+    💬 <b>Telegram:</b>
+    <a href="https://t.me/SeviSHer">@SeviSHer</a>
+
+    ⏰ <i>Har doim yordam berishdan mamnunmiz!</i>
+    💖 Qo‘ng‘iroq qiling yoki yozing — tez orada javob beramiz 🚀
+
   
   # Buttons
   buttons:
     share_phone_number: "📱 Telefon raqamni ulashish"
-    main_menu: "🏠 Asosiy menyu"
-    my_orders: "📦 Mening buyurtmalarim"
-    new_order: "➕ Yangi buyurtma"
-    settings: "⚙️ Sozlamalar"
-    help: "❓ Yordam"
     back: "◀️ Orqaga"
     cancel: "❌ Bekor qilish"
     confirm: "✅ Tasdiqlash"
-    option_1: "Buyurma berish"
-    option_2: "Mening buyurtmalarim"
-  
-  # Help text
-  help_text: |
-    📚 <b>Yordam bo'limi</b>
-    
-    <b>Mavjud buyruqlar:</b>
-    /start - Botni ishga tushirish
-    /help - Yordam bo'limi
-    
-    <b>Qanday foydalanish kerak?</b>
-    1️⃣ Telefon raqamingizni ulashing
-    2️⃣ Asosiy menyudan kerakli bo'limni tanlang
-    3️⃣ Buyurtma bering va kuting!
-    
-    ❓ Savollaringiz bo'lsa, administrator bilan bog'laning.
-  
-  # Order messages
-  orders:
-    no_orders: |
-      📭 Sizda hali buyurtmalar yo'q
-      
-      Yangi buyurtma berish uchun tugmani bosing! 👇
-    
-    order_created: |
-      ✅ Buyurtma muvaffaqiyatli yaratildi!
-      
-      Buyurtma raqami: #{order_id}
-      Holati: Kutilmoqda ⏳
-    
-    order_cancelled: |
-      ❌ Buyurtma bekor qilindi
-      
-      Buyurtma raqami: #{order_id}
-
-en:
-  # Welcome messages
-  welcome_back: |
-    🎉 Welcome back!
-    
-    How can I help you today?
-  
-  welcome_phone_request: |
-    👋 Hello!
-    
-    Please share your phone number to use the bot.
-    This is required to track your orders.
-  
-  # Error messages
-  error_occurred: |
-    ❌ An error occurred!
-    
-    Please try again or contact the administrator.
-  
-  # Phone number
-  phone_received: |
-    ✅ Phone number received!
-    
-    You can now use the bot fully.
-  
-  phone_invalid: |
-    ⚠️ Invalid phone number!
-    
-    Please press the button to share your phone number.
-  
-  # Buttons
-  buttons:
-    share_phone_number: "📱 Share Phone Number"
-    main_menu: "🏠 Main Menu"
-    my_orders: "📦 My Orders"
-    new_order: "➕ New Order"
-    settings: "⚙️ Settings"
-    help: "❓ Help"
-    back: "◀️ Back"
-    cancel: "❌ Cancel"
-    confirm: "✅ Confirm"
-    option_1: "Buyurma Berish"
-    option_2: "Mening buyurtmalarim"
-  
-  # Help text
-  help_text: |
-    📚 <b>Help Section</b>
-    
-    <b>Available commands:</b>
-    /start - Start the bot
-    /help - Help section
-    
-    <b>How to use:</b>
-    1️⃣ Share your phone number
-    2️⃣ Choose a section from the main menu
-    3️⃣ Place your order and wait!
-    
-    ❓ If you have questions, contact the administrator.
-  
-  # Order messages
-  orders:
-    no_orders: |
-      📭 You have no orders yet
-      
-      Press the button to create a new order! 👇
-    
-    order_created: |
-      ✅ Order created successfully!
-      
-      Order ID: #{order_id}
-      Status: Pending ⏳
-    
-    order_cancelled: |
-      ❌ Order cancelled
-      
-      Order ID: #{order_id}
+    yessir: "✅ Ha"
+    nosir: "❌ Yo'q"
+    option_1: "🎂 Buyurtma berish"
+    option_2: "📞 Aloqa"
