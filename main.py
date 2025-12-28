@@ -1,11 +1,14 @@
 """
-Main bot entry point
+Main bot entry point - FastAPI webhook mode
 """
-import asyncio
 import logging
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, Request, Response
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
+from aiogram.types import Update
 from dotenv import load_dotenv
 
 from core.config import config
@@ -20,49 +23,84 @@ setup_logging()
 
 logger = logging.getLogger(__name__)
 
-async def main():
-    bot = Bot(
-        token=config.bot_token,
-        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
-    )
-    dp = Dispatcher()
-    dp.message.middleware(ThrottlingMiddleware())
-    dp.message.middleware(AuthMiddleware())
+# Initialize bot and dispatcher
+bot = Bot(
+    token=config.bot_token,
+    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+)
+dp = Dispatcher()
 
+# Register middlewares
+dp.message.middleware(ThrottlingMiddleware())
+dp.message.middleware(AuthMiddleware())
+
+# Register handlers
+register_handlers(dp)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Startup and shutdown events"""
+    # Startup
     try:
         await init_db()
         logger.info("Database initialized")
-
-        register_handlers(dp)
-        logger.info("Handlers registered")
-
-        logger.info("Bot started")
-        await dp.start_polling(
-            bot,
-            allowed_updates=dp.resolve_used_update_types(),
-            drop_pending_updates=True
-        )
-
+        logger.info("Bot started in webhook mode")
+        logger.info("Webhook endpoint available at /webhook")
+        logger.info("Remember to set your webhook URL manually using Telegram Bot API")
+        
     except Exception as e:
-        logger.error(f"Error during polling: {e}")
+        logger.error(f"Error during startup: {e}")
+        raise
+    
+    yield
+    
+    # Shutdown
+    logger.info("Shutting down...")
+    
+    try:
+        await bot.session.close()
+        logger.info("Bot session closed")
+    except Exception as e:
+        logger.error(f"Error closing bot session: {e}")
+    
+    try:
+        await engine.dispose()
+        logger.info("Database engine disposed")
+    except Exception as e:
+        logger.error(f"Error disposing engine: {e}")
+    
+    logger.info("Resources cleaned up")
 
-    finally:
-        logger.info("Shutting down...")
-        
-        try:
-            await bot.session.close()
-        except Exception as e:
-            logger.error(f"Error closing bot session: {e}")
-        
-        try:
-            await engine.dispose()
-        except Exception as e:
-            logger.error(f"Error disposing engine: {e}")
 
-        logger.info("Resources cleaned up")
+# Create FastAPI app
+app = FastAPI(lifespan=lifespan)
+
+
+@app.post("/webhook")
+async def webhook(request: Request) -> Response:
+    """Handle incoming webhook updates"""
+    try:
+        update = Update.model_validate(await request.json(), context={"bot": bot})
+        await dp.feed_update(bot, update)
+        return Response(status_code=200)
+    except Exception as e:
+        logger.error(f"Error processing update: {e}")
+        return Response(status_code=500)
+
+
+@app.get("/health")
+async def health():
+    """Health check endpoint"""
+    return {"status": "ok"}
+
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        logger.info("Bot stopped")
+    import uvicorn
+    
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8000,
+        log_level="info"
+    )
