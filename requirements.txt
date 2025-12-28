@@ -29,3 +29,5 @@ typing-inspection==0.4.2
 typing_extensions==4.15.0
 tzdata==2025.3
 yarl==1.22.0
+fastapi==0.101.1
+uvicorn==0.24.0
