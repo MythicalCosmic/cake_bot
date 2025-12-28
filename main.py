@@ -2,6 +2,7 @@
 Main bot entry point - FastAPI webhook mode
 """
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, Response
@@ -77,6 +78,12 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 
+@app.get("/")
+async def root():
+    """Root endpoint"""
+    return {"status": "Bot is running", "webhook": "/webhook"}
+
+
 @app.post("/webhook")
 async def webhook(request: Request) -> Response:
     """Handle incoming webhook updates"""
@@ -98,9 +105,12 @@ async def health():
 if __name__ == "__main__":
     import uvicorn
     
+    # Get port from environment variable (Render uses PORT env var)
+    port = int(os.getenv("PORT", 10000))
+    
     uvicorn.run(
         app,
         host="0.0.0.0",
-        port=8000,
+        port=port,
         log_level="info"
     )
